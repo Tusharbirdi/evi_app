@@ -108,6 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: Colors.lightBlueAccent,
       body: Center(
         child: SingleChildScrollView(
+          reverse: true,
           child: Container(
             color: Colors.lightBlueAccent,
             child: Padding(

@@ -200,6 +200,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       ),
       body: Center(
         child: SingleChildScrollView(
+          reverse: true,
           child: Container(
             color: Colors.greenAccent,
             child: Padding(
