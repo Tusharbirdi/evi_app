@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class About extends StatefulWidget {
   const About({Key? key}) : super(key: key);
@@ -41,7 +42,7 @@ class _AboutState extends State<About> {
               const SizedBox(
                 height: 8,
               ),
-              Text(
+              SelectableText(
                 "Imagination Behind\n        Technology",
                 style: TextStyle(
                   fontFamily: 'Ubuntu',
@@ -49,14 +50,14 @@ class _AboutState extends State<About> {
                   fontSize: headingHeight,
                 ),
               ),
-              Text(str,
+              SelectableText(str,
                   style: TextStyle(
-                    fontSize: contentHeight,
+                    fontSize: contentHeight - 1,
                   )),
               const SizedBox(
                 height: 15,
               ),
-              Text(srt1,
+              SelectableText(srt1,
                   style: TextStyle(
                       fontSize: contentHeight,
                       fontWeight: FontWeight.bold,
@@ -64,13 +65,11 @@ class _AboutState extends State<About> {
               const SizedBox(
                 height: 15,
               ),
-              Text('Our Mission',
-                  style:
-                      TextStyle(fontSize: headingHeight, fontFamily: 'Ubuntu')),
-              const SizedBox(
-                height: 7,
+              SelectableText(
+                'Our Mission',
+                style: TextStyle(fontSize: headingHeight),
               ),
-              Text(
+              SelectableText(
                 'To Tap and train best brainpower to give solutions for real challenges of the world',
                 style: TextStyle(
                   fontSize: contentHeight,
@@ -79,6 +78,36 @@ class _AboutState extends State<About> {
               const SizedBox(
                 height: 15,
               ),
+              SelectableText('Contact Us',
+                  style: TextStyle(fontSize: headingHeight)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.email_rounded),
+                  //Icon(Icons.email_rounded),
+                  SizedBox(width: 5),
+                  SelectableText(
+                    'hr@exposysdata.com',
+                    style: TextStyle(fontSize: contentHeight),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.phone_rounded),
+                  //Icon(Icons.email_rounded),
+                  SizedBox(width: 5),
+                  SelectableText(
+                    '+91-77952-07065',
+                    style: TextStyle(fontSize: contentHeight),
+                  ),
+                ],
+              ),
+              const Text(address, textAlign: TextAlign.center),
             ],
           ),
         ),
@@ -92,3 +121,6 @@ const String str =
 
 const String srt1 =
     '“Our discoveries are beyond belief and if you’re with us, you’ll discover a newer way to think!"';
+
+const String address =
+    'Address :\nP.M R. Residency\nGround Floor, No-5/3 Sy. No.10/6-1\nOpp Nithyotsava Wedding Hall\nDoddaballapur Main Road\nSinganayakanahalli, Yelahanka\nBengaluru, Karnataka 560064';

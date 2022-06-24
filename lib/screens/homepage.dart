@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:evi_app/utils/containers.dart';
 
-import 'webd.dart';
-
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -24,20 +22,30 @@ class _HomePageState extends State<HomePage> {
           // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
+            DrawerHeader(
+              margin: EdgeInsets.fromLTRB(35, 35, 35, 35),
+              //padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
+              child: Container(
+                child: Column(
+                  children: [
+                    CircleAvatar(
+                      foregroundImage: AssetImage('images/expo.jpg'),
+                      radius: 30,
+                    ),
+                    Text('user@gmail.com'),
+                  ],
+                ),
               ),
-              child: Text('Drawer Header'),
             ),
             ListTile(
-              title: const Text('Item 1'),
+              title: const Text('Logout'),
               onTap: () {
                 // Update the state of the app
                 // ...
                 // Then close the drawer
                 Navigator.pop(context);
               },
+              leading: Icon(Icons.login_rounded),
             ),
           ],
         ),
@@ -60,7 +68,7 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 width: 5,
               ),
-              Text("Exposys Labs Virtual Intern",
+              Text("Exposys Data Labs",
                   style: TextStyle(
                     color: Colors.white,
                   )),

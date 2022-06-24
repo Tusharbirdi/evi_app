@@ -1,3 +1,4 @@
+import 'package:evi_app/screens/User.dart';
 import 'package:evi_app/screens/about.dart';
 import 'package:evi_app/screens/homepage.dart';
 import 'package:flutter/material.dart';
@@ -10,11 +11,12 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int currentIndex = 0;
+  int currentIndex = 1;
 
   final screens = [
     const HomePage(),
     const About(),
+    const UserScreen(),
   ];
 
   @override
@@ -42,6 +44,11 @@ class _MainScreenState extends State<MainScreen> {
               Icons.person_outline_sharp,
               color: Colors.white,
             ),
+          ),
+          BottomNavigationBarItem(
+            activeIcon: Icon(Icons.person_pin_circle),
+            label: 'User',
+            icon: Icon(Icons.person_pin_circle_outlined, color: Colors.white),
           ),
         ],
       ),
