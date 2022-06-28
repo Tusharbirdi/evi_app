@@ -21,17 +21,25 @@ class _buildCardState extends State<buildCard> {
           setState(() {
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => const Webd(),
+                builder: (context) => Webd(index: widget.index1),
               ),
             );
           });
         },
         splashColor: Colors.teal[400],
         child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                const Color.fromRGBO(51, 122, 183, 1.0),
+                Colors.lightBlue,
+              ],
+            ),
+          ),
           height: 220,
           padding: const EdgeInsets.all(15),
           width: double.infinity,
-          color: const Color.fromRGBO(51, 122, 183, 1.0),
+          //olor: const Color.fromRGBO(51, 122, 183, 1.0),
           child: Center(
             child: Column(
               children: [
@@ -48,7 +56,7 @@ class _buildCardState extends State<buildCard> {
                   mylist[widget.index1],
                   style: const TextStyle(
                       color: Colors.white,
-                      fontSize: 35,
+                      fontSize: 30,
                       fontWeight: FontWeight.bold),
                 ),
               ],

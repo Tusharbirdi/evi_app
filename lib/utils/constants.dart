@@ -9,6 +9,28 @@ List<String> mylist = [
   'Digital Marketing',
   'Content Writing',
   'Digital Media\n   Promoter',
+  'Process Associate',
+  'HR',
+  "Full Stack Dev",
+  'Business Development\n              Associate',
+  'Business Development Associate',
+];
+List<String> domainList = [
+  'Web Development',
+  'App Development',
+  'Interet Of Things',
+  'Cyber Security',
+  'Data Science',
+  'Software Development',
+  'UI/UX Design',
+  'Digital Marketing',
+  'Content Writing',
+  'Digital Media Promoter',
+  'Process Associate',
+  'HR',
+  "Full Stack Dev",
+  'Business Development\nAssociate',
+  'Business Development Associate',
 ];
 
 List<String> myimages = [
@@ -22,4 +44,9 @@ List<String> myimages = [
   'images/dm.jpg',
   'images/t.jpg',
   'images/digprom.jpg',
+  'images/t.jpg',
+  'images/hr.jpg',
+  'images/fstd.jpg',
+  'images/t.jpg',
+  'images/t.jpg',
 ];

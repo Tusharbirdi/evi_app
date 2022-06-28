@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+//import 'package:flutter/services.dart';
+//import 'package:flutter/widgets.dart';
 import 'package:evi_app/utils/containers.dart';
 
 class HomePage extends StatefulWidget {
@@ -27,7 +28,7 @@ class _HomePageState extends State<HomePage> {
               //padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
               child: Container(
                 child: Column(
-                  children: [
+                  children: const [
                     CircleAvatar(
                       foregroundImage: AssetImage('images/expo.jpg'),
                       radius: 30,
@@ -52,7 +53,6 @@ class _HomePageState extends State<HomePage> {
       ),
       appBar: AppBar(
         leadingWidth: 40,
-        elevation: 10,
         backgroundColor: const Color.fromRGBO(51, 51, 51, 60.0),
         centerTitle: true,
         title: Center(
@@ -82,49 +82,128 @@ class _HomePageState extends State<HomePage> {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [Colors.lightBlueAccent, Colors.greenAccent])),
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.fromLTRB(5, 8, 5, 8),
-          child: Column(
-            children: const [
-              buildCard(index1: 0),
-              SizedBox(
-                height: 12,
+        //   child: SingleChildScrollView(
+        //     padding: const EdgeInsets.fromLTRB(5, 8, 5, 8),
+        //     child: Column(
+        //       children: const [
+        //         buildCard(index1: 0),
+        //         SizedBox(
+        //           height: 12,
+        //         ),
+        //         buildCard(index1: 1),
+        //         SizedBox(
+        //           height: 12,
+        //         ),
+        //         buildCard(index1: 2),
+        //         SizedBox(
+        //           height: 12,
+        //         ),
+        //         buildCard(index1: 3),
+        //         SizedBox(
+        //           height: 12,
+        //         ),
+        //         buildCard(index1: 4),
+        //         SizedBox(
+        //           height: 12,
+        //         ),
+        //         buildCard(index1: 5),
+        //         SizedBox(
+        //           height: 12,
+        //         ),
+        //         buildCard(index1: 6),
+        //         SizedBox(
+        //           height: 12,
+        //         ),
+        //         buildCard(index1: 7),
+        //         SizedBox(
+        //           height: 12,
+        //         ),
+        //         buildCard(index1: 8),
+        //         SizedBox(
+        //           height: 12,
+        //         ),
+        //         buildCard(index1: 9),
+        //         SizedBox(
+        //           height: 12,
+        //         ),
+        //         buildCard(index1: 10),
+        //       ],
+        //     ),
+        //   ),
+        // ),
+        child: ListView(
+          children: [
+            Container(
+              padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+              color: const Color.fromRGBO(51, 51, 51, 60.0),
+              width: double.infinity,
+              child: Center(
+                child: Text(
+                  'Click on the particular domain tab to explore more about the Internship',
+                  style: TextStyle(fontSize: 18, color: CupertinoColors.white),
+                ),
               ),
-              buildCard(index1: 1),
-              SizedBox(
-                height: 12,
-              ),
-              buildCard(index1: 2),
-              SizedBox(
-                height: 12,
-              ),
-              buildCard(index1: 3),
-              SizedBox(
-                height: 12,
-              ),
-              buildCard(index1: 4),
-              SizedBox(
-                height: 12,
-              ),
-              buildCard(index1: 5),
-              SizedBox(
-                height: 12,
-              ),
-              buildCard(index1: 6),
-              SizedBox(
-                height: 12,
-              ),
-              buildCard(index1: 7),
-              SizedBox(
-                height: 12,
-              ),
-              buildCard(index1: 8),
-              SizedBox(
-                height: 12,
-              ),
-              buildCard(index1: 9),
-            ],
-          ),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            buildCard(index1: 0),
+            SizedBox(
+              height: 12,
+            ),
+            buildCard(index1: 1),
+            SizedBox(
+              height: 12,
+            ),
+            buildCard(index1: 2),
+            SizedBox(
+              height: 12,
+            ),
+            buildCard(index1: 3),
+            SizedBox(
+              height: 12,
+            ),
+            buildCard(index1: 4),
+            SizedBox(
+              height: 12,
+            ),
+            buildCard(index1: 5),
+            SizedBox(
+              height: 12,
+            ),
+            buildCard(index1: 6),
+            SizedBox(
+              height: 12,
+            ),
+            buildCard(index1: 7),
+            SizedBox(
+              height: 12,
+            ),
+            SizedBox(
+              height: 12,
+            ),
+            buildCard(index1: 8),
+            SizedBox(
+              height: 12,
+            ),
+            buildCard(index1: 9),
+            SizedBox(
+              height: 12,
+            ),
+            buildCard(index1: 10),
+            SizedBox(
+              height: 12,
+            ),
+            buildCard(index1: 11),
+            SizedBox(
+              height: 12,
+            ),
+            buildCard(index1: 12),
+            SizedBox(
+              height: 12,
+            ),
+            buildCard(index1: 13),
+          ],
         ),
       ),
     );

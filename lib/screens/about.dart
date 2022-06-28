@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -18,7 +19,7 @@ class _AboutState extends State<About> {
           elevation: 5,
           title: const Text(
             'About us',
-            style: TextStyle(color: Colors.white, fontFamily: 'Ubuntu'),
+            style: TextStyle(color: Colors.white),
           ),
           backgroundColor: const Color.fromRGBO(31, 31, 31, 50.0),
           centerTitle: true),
@@ -26,11 +27,15 @@ class _AboutState extends State<About> {
         width: double.infinity,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-              colors: [Colors.lightBlueAccent, Colors.greenAccent],
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft),
+            colors: [
+              Colors.lightBlueAccent,
+              Colors.lightBlue,
+            ],
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+          ),
         ),
-        padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
+        padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
@@ -62,12 +67,23 @@ class _AboutState extends State<About> {
                       fontSize: contentHeight,
                       fontWeight: FontWeight.bold,
                       fontStyle: FontStyle.italic)),
-              const SizedBox(
+              SizedBox(
+                height: 15,
+              ),
+              Container(
+                height: 4,
+                width: 250,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5), color: Colors.blue),
+              ),
+              SizedBox(
                 height: 15,
               ),
               SelectableText(
                 'Our Mission',
-                style: TextStyle(fontSize: headingHeight),
+                style: TextStyle(
+                  fontSize: headingHeight,
+                ),
               ),
               SelectableText(
                 'To Tap and train best brainpower to give solutions for real challenges of the world',
@@ -75,25 +91,24 @@ class _AboutState extends State<About> {
                   fontSize: contentHeight,
                 ),
               ),
-              const SizedBox(
+              SizedBox(
+                height: 15,
+              ),
+              Container(
+                height: 4,
+                width: 250,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5), color: Colors.blue),
+              ),
+              SizedBox(
                 height: 15,
               ),
               SelectableText('Contact Us',
-                  style: TextStyle(fontSize: headingHeight)),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.email_rounded),
-                  //Icon(Icons.email_rounded),
-                  SizedBox(width: 5),
-                  SelectableText(
-                    'hr@exposysdata.com',
-                    style: TextStyle(fontSize: contentHeight),
-                  ),
-                ],
-              ),
+                  style: TextStyle(
+                    fontSize: headingHeight,
+                  )),
               SizedBox(
-                height: 5,
+                height: 10,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -107,7 +122,26 @@ class _AboutState extends State<About> {
                   ),
                 ],
               ),
-              const Text(address, textAlign: TextAlign.center),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.email_rounded),
+                  //Icon(Icons.email_rounded),
+                  SizedBox(width: 5),
+                  SelectableText(
+                    'hr@exposysdata.com',
+                    style: TextStyle(fontSize: contentHeight),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              const Text(
+                address,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 15),
+              ),
             ],
           ),
         ),

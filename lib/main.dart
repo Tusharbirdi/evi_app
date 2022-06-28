@@ -1,5 +1,7 @@
+import 'package:evi_app/mainscreen.dart';
+//import 'package:evi_app/screens/homepage.dart';
 import 'package:flutter/material.dart';
-import 'package:evi_app/screens/loginscreen.dart';
+//import 'package:evi_app/screens/loginscreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +25,7 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
         fontFamily: 'Ubuntu',
       ),
-      home: const LoginScreen(),
+      home: const MainScreen(), //HomePage(), //LoginScreen(),
     );
   }
 }
