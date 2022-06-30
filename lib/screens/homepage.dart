@@ -1,8 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:evi_app/model/user%20model.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 //import 'package:flutter/services.dart';
 //import 'package:flutter/widgets.dart';
 import 'package:evi_app/utils/containers.dart';
+
+import 'loginscreen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -12,6 +17,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  User? user = FirebaseAuth.instance.currentUser;
+  UserModel loggedInUser = UserModel();
+
+  @override
+  void initState() {
+    super.initState();
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(user!.uid)
+        .get()
+        .then((value) {
+      this.loggedInUser = UserModel.fromMap(value.data());
+      setState(() {});
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,18 +45,18 @@ class _HomePageState extends State<HomePage> {
           padding: EdgeInsets.zero,
           children: [
             DrawerHeader(
-              margin: EdgeInsets.fromLTRB(35, 35, 35, 35),
+              margin: const EdgeInsets.fromLTRB(35, 35, 35, 35),
               //padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
-              child: Container(
-                child: Column(
-                  children: const [
-                    CircleAvatar(
-                      foregroundImage: AssetImage('images/expo.jpg'),
-                      radius: 30,
-                    ),
-                    Text('user@gmail.com'),
-                  ],
-                ),
+              child: Column(
+                children: [
+                  const CircleAvatar(
+                    foregroundImage: AssetImage('images/expo.jpg'),
+                    radius: 30,
+                  ),
+                  Text(loggedInUser.firstName.toString() +
+                      loggedInUser.secondName.toString()),
+                  Text(loggedInUser.email.toString()),
+                ],
               ),
             ),
             ListTile(
@@ -44,9 +65,9 @@ class _HomePageState extends State<HomePage> {
                 // Update the state of the app
                 // ...
                 // Then close the drawer
-                Navigator.pop(context);
+                logout(context);
               },
-              leading: Icon(Icons.login_rounded),
+              leading: const Icon(Icons.login_rounded),
             ),
           ],
         ),
@@ -65,9 +86,7 @@ class _HomePageState extends State<HomePage> {
                 maxRadius: 20,
                 backgroundImage: AssetImage('images/expo.jpg'),
               ),
-              SizedBox(
-                width: 5,
-              ),
+              SizedBox(width: 5),
               Text("Exposys Data Labs",
                   style: TextStyle(
                     color: Colors.white,
@@ -134,78 +153,84 @@ class _HomePageState extends State<HomePage> {
         child: ListView(
           children: [
             Container(
-              padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
               color: const Color.fromRGBO(51, 51, 51, 60.0),
               width: double.infinity,
-              child: Center(
+              child: const Center(
                 child: Text(
                   'Click on the particular domain tab to explore more about the Internship',
                   style: TextStyle(fontSize: 18, color: CupertinoColors.white),
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
-            buildCard(index1: 0),
-            SizedBox(
+            const buildCard(index1: 0),
+            const SizedBox(
               height: 12,
             ),
-            buildCard(index1: 1),
-            SizedBox(
+            const buildCard(index1: 1),
+            const SizedBox(
               height: 12,
             ),
-            buildCard(index1: 2),
-            SizedBox(
+            const buildCard(index1: 2),
+            const SizedBox(
               height: 12,
             ),
-            buildCard(index1: 3),
-            SizedBox(
+            const buildCard(index1: 3),
+            const SizedBox(
               height: 12,
             ),
-            buildCard(index1: 4),
-            SizedBox(
+            const buildCard(index1: 4),
+            const SizedBox(
               height: 12,
             ),
-            buildCard(index1: 5),
-            SizedBox(
+            const buildCard(index1: 5),
+            const SizedBox(
               height: 12,
             ),
-            buildCard(index1: 6),
-            SizedBox(
+            const buildCard(index1: 6),
+            const SizedBox(
               height: 12,
             ),
-            buildCard(index1: 7),
-            SizedBox(
+            const buildCard(index1: 7),
+            const SizedBox(
               height: 12,
             ),
-            SizedBox(
+            const SizedBox(
               height: 12,
             ),
-            buildCard(index1: 8),
-            SizedBox(
+            const buildCard(index1: 8),
+            const SizedBox(
               height: 12,
             ),
-            buildCard(index1: 9),
-            SizedBox(
+            const buildCard(index1: 9),
+            const SizedBox(
               height: 12,
             ),
-            buildCard(index1: 10),
-            SizedBox(
+            const buildCard(index1: 10),
+            const SizedBox(
               height: 12,
             ),
-            buildCard(index1: 11),
-            SizedBox(
+            const buildCard(index1: 11),
+            const SizedBox(
               height: 12,
             ),
-            buildCard(index1: 12),
-            SizedBox(
+            const buildCard(index1: 12),
+            const SizedBox(
               height: 12,
             ),
-            buildCard(index1: 13),
+            const buildCard(index1: 13),
           ],
         ),
       ),
     );
   }
+}
+
+Future<void> logout(BuildContext context) async {
+  await FirebaseAuth.instance.signOut();
+  Navigator.of(context)
+      .pushReplacement(MaterialPageRoute(builder: (context) => LoginScreen()));
 }

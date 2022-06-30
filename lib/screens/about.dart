@@ -71,8 +71,8 @@ class _AboutState extends State<About> {
                 height: 15,
               ),
               Container(
-                height: 4,
-                width: 250,
+                height: 1.6,
+                width: 270,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5), color: Colors.blue),
               ),
@@ -95,8 +95,8 @@ class _AboutState extends State<About> {
                 height: 15,
               ),
               Container(
-                height: 4,
-                width: 250,
+                height: 1.6,
+                width: 270,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5), color: Colors.blue),
               ),

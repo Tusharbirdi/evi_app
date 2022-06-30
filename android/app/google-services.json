@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "786657620978",
+    "project_id": "exposysdatalabs-f01a5",
+    "storage_bucket": "exposysdatalabs-f01a5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:786657620978:android:023bbbc4899b301917316b",
+        "android_client_info": {
+          "package_name": "com.example.evi_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "786657620978-b62onibh9gdnhog9liobh7tut83kkg7t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.evi_app",
+            "certificate_hash": "2d81b10b7357c0b0ddc08ab679fa201873fdea35"
+          }
+        },
+        {
+          "client_id": "786657620978-n19cfbmolbshn8tpkqon515jtrvsv3kk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC044cW2pC4h4M4urOLiquCyIyPOtH3vMg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "786657620978-n19cfbmolbshn8tpkqon515jtrvsv3kk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

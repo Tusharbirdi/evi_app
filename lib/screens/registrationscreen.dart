@@ -1,9 +1,9 @@
-/*import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:email_password_login/model/user_model.dart';
-import 'package:email_password_login/screens/home_screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';*/
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:evi_app/mainscreen.dart';
+import 'package:evi_app/model/user model.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-//import 'package:fluttertoast/fluttertoast.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({Key? key}) : super(key: key);
@@ -13,7 +13,7 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
-  //final _auth = FirebaseAuth.instance;
+  final _auth = FirebaseAuth.instance;
 
   // string for displaying the error Message
   String? errorMessage;
@@ -171,7 +171,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
         onPressed: () {
-          //signUp(emailEditingController.text, passwordEditingController.text);
+          signUp(emailEditingController.text, passwordEditingController.text);
         },
         child: const Text(
           "SignUp",
@@ -240,7 +240,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     );
   }
 
-  /*void signUp(String email, String password) async {
+  void signUp(String email, String password) async {
     if (_formKey.currentState!.validate()) {
       try {
         await _auth
@@ -281,7 +281,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   postDetailsToFirestore() async {
     // calling our firestore
     // calling our user model
-    // sedning these values
+    // sending the values
 
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
     User? user = _auth.currentUser;
@@ -302,7 +302,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
     Navigator.pushAndRemoveUntil(
         (context),
-        MaterialPageRoute(builder: (context) => HomeScreen()),
+        MaterialPageRoute(builder: (context) => MainScreen()),
         (route) => false);
-  }*/
+  }
 }
