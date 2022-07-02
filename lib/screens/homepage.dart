@@ -26,6 +26,7 @@ class _HomePageState extends State<HomePage> {
         .doc(user!.uid)
         .get()
         .then((value) {
+      // ignore: unnecessary_this
       this.loggedInUser = UserModel.fromMap(value.data());
       setState(() {});
     });
@@ -35,6 +36,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Drawer(
+        backgroundColor: Colors.lightBlueAccent,
         // Add a ListView to the drawer. This ensures the user can scroll
         // through the options in the drawer if there isn't enough vertical
         // space to fit everything.
@@ -43,29 +45,42 @@ class _HomePageState extends State<HomePage> {
           padding: EdgeInsets.zero,
           children: [
             DrawerHeader(
-              margin: const EdgeInsets.fromLTRB(35, 35, 35, 35),
+              curve: Curves.easeInExpo,
+              decoration: const BoxDecoration(color: Colors.lightBlueAccent),
+              margin: const EdgeInsets.fromLTRB(25, 25, 25, 25),
               //padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
               child: Column(
                 children: [
                   const CircleAvatar(
                     foregroundImage: AssetImage('images/expo.jpg'),
-                    radius: 30,
+                    radius: 40,
                   ),
-                  Text(loggedInUser.firstName.toString() +
-                      loggedInUser.secondName.toString()),
-                  Text(loggedInUser.email.toString()),
+                  Text(
+                    loggedInUser.firstName.toString() +
+                        " " +
+                        loggedInUser.secondName.toString(),
+                    style: const TextStyle(fontSize: 24),
+                  ),
+                  Text(
+                    loggedInUser.email.toString(),
+                    style: const TextStyle(fontSize: 17),
+                  ),
                 ],
               ),
             ),
             ListTile(
-              title: const Text('Logout'),
+              title: const Text(
+                'Logout',
+                style: TextStyle(fontSize: 20),
+              ),
               onTap: () {
                 // Update the state of the app
                 // ...
                 // Then close the drawer
                 logout(context);
               },
-              leading: const Icon(Icons.login_rounded),
+              leading: const Icon(Icons.login_rounded,
+                  size: 35, color: Colors.black),
             ),
           ],
         ),
@@ -229,6 +244,6 @@ class _HomePageState extends State<HomePage> {
 
 Future<void> logout(BuildContext context) async {
   await FirebaseAuth.instance.signOut();
-  Navigator.of(context)
-      .pushReplacement(MaterialPageRoute(builder: (context) => LoginScreen()));
+  Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (context) => const LoginScreen()));
 }

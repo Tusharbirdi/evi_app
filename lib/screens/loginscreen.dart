@@ -27,6 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   // string for displaying the error Message
   String? errorMessage;
+  String? email;
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
         },
         onSaved: (value) {
           emailController.text = value!;
+          email = value;
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
@@ -106,12 +108,12 @@ class _LoginScreenState extends State<LoginScreen> {
     );
 
     return Scaffold(
-      backgroundColor: Colors.lightBlueAccent,
+      backgroundColor: Colors.lightBlueAccent[100],
       body: Center(
         child: SingleChildScrollView(
           reverse: true,
           child: Container(
-            color: Colors.lightBlueAccent,
+            color: Colors.lightBlueAccent[100],
             child: Padding(
               padding: const EdgeInsets.all(36.0),
               child: Form(
@@ -156,6 +158,22 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                       ],
+                    ),
+                    SizedBox(
+                      height: 6,
+                    ),
+                    GestureDetector(
+                      child: const Text(
+                        'Forgot Password?',
+                        style: TextStyle(
+                          decoration: TextDecoration.underline,
+                          fontSize: 16,
+                          color: Color.fromRGBO(51, 122, 183, 1.0),
+                        ),
+                      ),
+                      onTap: () {
+                        resetpassword();
+                      },
                     ),
                   ],
                 ),
@@ -205,6 +223,17 @@ class _LoginScreenState extends State<LoginScreen> {
         Fluttertoast.showToast(msg: errorMessage!);
         print(error.code);
       }
+    }
+  }
+
+  Future resetpassword() async {
+    //showDialog(context: context, builder: (context)=> CircularProgressIndicator());
+    try {
+      await FirebaseAuth.instance
+          .sendPasswordResetEmail(email: emailController.text);
+      Fluttertoast.showToast(msg: 'Password Reset Email Sent (Check Spam!)');
+    } on FirebaseAuthException catch (error) {
+      Fluttertoast.showToast(msg: error.toString());
     }
   }
 }
