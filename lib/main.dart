@@ -1,6 +1,8 @@
-//import 'package:evi_app/mainscreen.dart';
+import 'dart:async';
+import 'package:evi_app/mainscreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-//import 'package:evi_app/screens/homepage.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:evi_app/screens/loginscreen.dart';
 
@@ -18,7 +20,29 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  // This widget is the root application.
+  late StreamSubscription<User?> user;
+  @override
+  void initState() {
+    super.initState();
+    user = FirebaseAuth.instance.authStateChanges().listen((user) {
+      if (user == null) {
+        if (kDebugMode) {
+          print('User is currently signed out!');
+        }
+      } else {
+        if (kDebugMode) {
+          print('User is signed in!');
+        }
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    user.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -28,7 +52,9 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
         fontFamily: 'Ubuntu',
       ),
-      home: const LoginScreen(),
+      home: FirebaseAuth.instance.currentUser == null
+          ? const LoginScreen()
+          : const MainScreen(),
     );
   }
 }

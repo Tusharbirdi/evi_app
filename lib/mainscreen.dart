@@ -33,7 +33,10 @@ class _MainScreenState extends State<MainScreen> {
           BottomNavigationBarItem(
             activeIcon: Icon(Icons.home),
             label: 'Home',
-            icon: Icon(Icons.home_outlined, color: Colors.white),
+            icon: Icon(
+              Icons.home_outlined,
+              color: Colors.white,
+            ),
           ),
           BottomNavigationBarItem(
             activeIcon: Icon(Icons.person_sharp),

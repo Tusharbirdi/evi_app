@@ -1,7 +1,7 @@
 // ignore_for_file: camel_case_types
 
 import 'package:flutter/material.dart';
-import 'package:evi_app/screens/webd.dart';
+import 'package:evi_app/screens/domains_content.dart';
 import 'constants.dart';
 
 class buildCard extends StatefulWidget {
@@ -21,17 +21,17 @@ class _buildCardState extends State<buildCard> {
           setState(() {
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => Webd(index: widget.index1),
+                builder: (context) => DomainContent(index: widget.index1),
               ),
             );
           });
         },
         splashColor: Colors.teal[400],
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                const Color.fromRGBO(51, 122, 183, 1.0),
+                Color.fromRGBO(51, 122, 183, 1.0),
                 Colors.lightBlue,
               ],
             ),
@@ -39,7 +39,6 @@ class _buildCardState extends State<buildCard> {
           height: 220,
           padding: const EdgeInsets.all(15),
           width: double.infinity,
-          //olor: const Color.fromRGBO(51, 122, 183, 1.0),
           child: Center(
             child: Column(
               children: [

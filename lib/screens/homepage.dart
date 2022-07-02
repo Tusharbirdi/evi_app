@@ -3,8 +3,6 @@ import 'package:evi_app/model/user%20model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-//import 'package:flutter/services.dart';
-//import 'package:flutter/widgets.dart';
 import 'package:evi_app/utils/containers.dart';
 
 import 'loginscreen.dart';
