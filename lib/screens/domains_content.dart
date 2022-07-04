@@ -14,6 +14,8 @@ class DomainContent extends StatefulWidget {
 }
 
 class _DomainContentState extends State<DomainContent> {
+  var url =
+      'https://drive.google.com/file/d/1Z7RKmScBO7n9vcDIG3Xeo853Ics4QFaF/view';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,8 +46,6 @@ class _DomainContentState extends State<DomainContent> {
             (widget.index == 4)
                 ? ElevatedButton(
                     onPressed: () async {
-                      var url =
-                          'https://drive.google.com/file/d/1Z7RKmScBO7n9vcDIG3Xeo853Ics4QFaF/view';
                       if (await canLaunch(url)) {
                         await launch(url);
                       } else {

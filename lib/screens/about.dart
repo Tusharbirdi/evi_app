@@ -1,6 +1,8 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class About extends StatefulWidget {
   const About({Key? key}) : super(key: key);
@@ -12,6 +14,15 @@ class About extends StatefulWidget {
 class _AboutState extends State<About> {
   double headingHeight = 25.0;
   double contentHeight = 18.0;
+  double circleAvatarSize = 30;
+  double sizeBoxWidth = 10;
+  double sizeIcon = 40;
+
+  String fburl = 'https://www.facebook.com/Exposysdatalabs/';
+  String instaurl = 'https://www.instagram.com/exposysdatalabs/';
+  String yturl = 'https://www.youtube.com/channel/UCCdSuhhzWqmj9h9uyEl-JSA';
+  String linurl = 'https://www.linkedin.com/company/upchat-technologies/';
+  String weburl = 'http://www.exposysdata.com/';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,8 +39,8 @@ class _AboutState extends State<About> {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Colors.lightBlueAccent,
-              Colors.lightBlue,
+              Colors.greenAccent,
+              Colors.blue,
             ],
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
@@ -67,7 +78,7 @@ class _AboutState extends State<About> {
                       fontSize: contentHeight,
                       fontWeight: FontWeight.bold,
                       fontStyle: FontStyle.italic)),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Container(
@@ -76,7 +87,7 @@ class _AboutState extends State<About> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5), color: Colors.blue),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               SelectableText(
@@ -91,7 +102,7 @@ class _AboutState extends State<About> {
                   fontSize: contentHeight,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Container(
@@ -100,22 +111,22 @@ class _AboutState extends State<About> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5), color: Colors.blue),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               SelectableText('Contact Us',
                   style: TextStyle(
                     fontSize: headingHeight,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.phone_rounded),
+                  const Icon(Icons.phone_rounded),
                   //Icon(Icons.email_rounded),
-                  SizedBox(width: 5),
+                  const SizedBox(width: 5),
                   SelectableText(
                     '+91-77952-07065',
                     style: TextStyle(fontSize: contentHeight),
@@ -125,22 +136,116 @@ class _AboutState extends State<About> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.email_rounded),
+                  const Icon(Icons.email_rounded),
                   //Icon(Icons.email_rounded),
-                  SizedBox(width: 5),
+                  const SizedBox(width: 5),
                   SelectableText(
                     'hr@exposysdata.com',
                     style: TextStyle(fontSize: contentHeight),
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  IconButton(
+                    onPressed: () async {
+                      if (await canLaunch(linurl)) {
+                        await launch(linurl);
+                      } else {
+                        throw 'Could not launch $linurl';
+                      }
+                    },
+                    icon: Icon(
+                      FontAwesomeIcons.linkedin,
+                      color: const Color.fromRGBO(10, 102, 194, 1.0),
+                      size: sizeIcon,
+                    ),
+                  ),
+                  SizedBox(
+                    width: sizeBoxWidth,
+                  ),
+                  IconButton(
+                    onPressed: () async {
+                      if (await canLaunch(instaurl)) {
+                        await launch(instaurl);
+                      } else {
+                        throw 'Could not launch $instaurl';
+                      }
+                    },
+                    icon: const Icon(
+                      FontAwesomeIcons.instagram,
+                      color: Colors.black,
+                    ),
+                    iconSize: sizeIcon,
+                  ),
+                  SizedBox(
+                    width: sizeBoxWidth,
+                  ),
+                  IconButton(
+                    onPressed: () async {
+                      if (await canLaunch(yturl)) {
+                        await launch(yturl);
+                      } else {
+                        throw 'Could not launch $yturl';
+                      }
+                    },
+                    icon: const Icon(
+                      FontAwesomeIcons.youtube,
+                      color: Color.fromRGBO(255, 0, 0, 1.0),
+                    ),
+                    iconSize: sizeIcon,
+                  ),
+                  SizedBox(
+                    width: sizeBoxWidth,
+                  ),
+                  IconButton(
+                    onPressed: () async {
+                      if (await canLaunch(fburl)) {
+                        await launch(fburl);
+                      } else {
+                        throw 'Could not launch $fburl';
+                      }
+                    },
+                    icon: const Icon(
+                      FontAwesomeIcons.facebookSquare,
+                      color: Color.fromRGBO(66, 103, 178, 1.0),
+                    ),
+                    iconSize: sizeIcon,
+                  ),
+                  SizedBox(
+                    width: sizeBoxWidth,
+                  ),
+                  IconButton(
+                    onPressed: () async {
+                      if (await canLaunch(weburl)) {
+                        await launch(weburl);
+                      } else {
+                        throw 'Could not launch $weburl';
+                      }
+                    },
+                    icon: const Icon(
+                      FontAwesomeIcons.globe,
+                      color: Colors.black,
+                    ),
+                    iconSize: sizeIcon,
+                  ),
+                ],
+              ),
+              const SizedBox(
                 height: 10,
               ),
               const Text(
                 address,
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 15),
+              ),
+              const SizedBox(
+                height: 15,
               ),
             ],
           ),
@@ -157,4 +262,4 @@ const String srt1 =
     '“Our discoveries are beyond belief and if you’re with us, you’ll discover a newer way to think!"';
 
 const String address =
-    'Address :\nP.M R. Residency\nGround Floor, No-5/3 Sy. No.10/6-1\nOpp Nithyotsava Wedding Hall\nDoddaballapur Main Road\nSinganayakanahalli, Yelahanka\nBengaluru, Karnataka 560064';
+    'P.M R. Residency\nGround Floor, No-5/3 Sy. No.10/6-1\nOpp Nithyotsava Wedding Hall\nDoddaballapur Main Road\nSinganayakanahalli, Yelahanka\nBengaluru, Karnataka 560064';
