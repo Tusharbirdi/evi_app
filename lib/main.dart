@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:evi_app/mainscreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -46,15 +47,27 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        fontFamily: 'Ubuntu',
-      ),
-      home: FirebaseAuth.instance.currentUser == null
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          fontFamily: 'Ubuntu',
+        ),
+        home: AnimatedSplashScreen(
+            duration: 3000,
+            splash: const Text(
+              'Welcome to Exposys Labs',
+              style: TextStyle(fontSize: 24),
+            ),
+            nextScreen: FirebaseAuth.instance.currentUser == null
+                ? const LoginScreen()
+                : const MainScreen(),
+            splashTransition: SplashTransition.fadeTransition,
+            backgroundColor: Colors.white));
+
+    /*FirebaseAuth.instance.currentUser == null
           ? const LoginScreen()
           : const MainScreen(),
-    );
+    );*/
   }
 }

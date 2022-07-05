@@ -15,7 +15,7 @@ class _AboutState extends State<About> {
   double headingHeight = 25.0;
   double contentHeight = 18.0;
   double circleAvatarSize = 30;
-  double sizeBoxWidth = 10;
+  double sizeBoxWidth = 8;
   double sizeIcon = 40;
 
   String fburl = 'https://www.facebook.com/Exposysdatalabs/';
@@ -154,23 +154,6 @@ class _AboutState extends State<About> {
                 children: [
                   IconButton(
                     onPressed: () async {
-                      if (await canLaunch(linurl)) {
-                        await launch(linurl);
-                      } else {
-                        throw 'Could not launch $linurl';
-                      }
-                    },
-                    icon: Icon(
-                      FontAwesomeIcons.linkedin,
-                      color: const Color.fromRGBO(10, 102, 194, 1.0),
-                      size: sizeIcon,
-                    ),
-                  ),
-                  SizedBox(
-                    width: sizeBoxWidth,
-                  ),
-                  IconButton(
-                    onPressed: () async {
                       if (await canLaunch(instaurl)) {
                         await launch(instaurl);
                       } else {
@@ -182,6 +165,23 @@ class _AboutState extends State<About> {
                       color: Colors.black,
                     ),
                     iconSize: sizeIcon,
+                  ),
+                  SizedBox(
+                    width: sizeBoxWidth,
+                  ),
+                  IconButton(
+                    onPressed: () async {
+                      if (await canLaunch(linurl)) {
+                        await launch(linurl);
+                      } else {
+                        throw 'Could not launch $linurl';
+                      }
+                    },
+                    icon: Icon(
+                      FontAwesomeIcons.linkedin,
+                      color: const Color.fromRGBO(10, 102, 194, 1.0),
+                      size: sizeIcon,
+                    ),
                   ),
                   SizedBox(
                     width: sizeBoxWidth,

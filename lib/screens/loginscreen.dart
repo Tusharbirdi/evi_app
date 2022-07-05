@@ -27,6 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   // string for displaying the error Message
   String? errorMessage;
+  String? errorMessage2;
   String? email;
 
   @override
@@ -233,7 +234,30 @@ class _LoginScreenState extends State<LoginScreen> {
           .sendPasswordResetEmail(email: emailController.text);
       Fluttertoast.showToast(msg: 'Password Reset Email Sent (Check Spam!)');
     } on FirebaseAuthException catch (error) {
-      Fluttertoast.showToast(msg: error.toString());
+      switch (error.code) {
+        case "invalid-email":
+          errorMessage2 = "Your email address appears to be malformed.";
+
+          break;
+        case "wrong-password":
+          errorMessage2 = "Your password is wrong.";
+          break;
+        case "user-not-found":
+          errorMessage2 = "User with this email doesn't exist.";
+          break;
+        case "user-disabled":
+          errorMessage2 = "User with this email has been disabled.";
+          break;
+        case "too-many-requests":
+          errorMessage2 = "Too many requests";
+          break;
+        case "operation-not-allowed":
+          errorMessage2 = "Signing in with Email and Password is not enabled.";
+          break;
+        default:
+          errorMessage2 = "Please enter your Email in email field";
+      }
+      Fluttertoast.showToast(msg: errorMessage2!);
     }
   }
 }

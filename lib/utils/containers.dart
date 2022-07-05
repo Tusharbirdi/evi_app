@@ -55,7 +55,7 @@ class _buildCardState extends State<buildCard> {
                   mylist[widget.index1],
                   style: const TextStyle(
                       color: Colors.white,
-                      fontSize: 30,
+                      fontSize: 25,
                       fontWeight: FontWeight.bold),
                 ),
               ],

@@ -2,6 +2,7 @@
 
 import 'package:evi_app/utils/constants.dart';
 import 'package:evi_app/utils/contents.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -16,6 +17,8 @@ class DomainContent extends StatefulWidget {
 class _DomainContentState extends State<DomainContent> {
   var url =
       'https://drive.google.com/file/d/1Z7RKmScBO7n9vcDIG3Xeo853Ics4QFaF/view';
+  var url2 =
+      'https://drive.google.com/file/d/1kbu3Fu0LQzkM3CQLWXyRoB5Suguq8wqq/view';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,18 +46,39 @@ class _DomainContentState extends State<DomainContent> {
               contents[widget.index.toString()].toString(),
               style: const TextStyle(fontSize: 15),
             ),
-            (widget.index == 4)
-                ? ElevatedButton(
-                    onPressed: () async {
-                      if (await canLaunch(url)) {
-                        await launch(url);
-                      } else {
-                        throw 'Could not launch $url';
-                      }
-                    },
-                    child: const Text("Link To Drive"),
-                  )
-                : const Text("No link available"),
+            if (widget.index == 4)
+              ElevatedButton(
+                onPressed: () async {
+                  if (await canLaunch(url)) {
+                    await launch(url);
+                  } else {
+                    throw 'Could not launch $url';
+                  }
+                },
+                child: const Text("Link To Drive"),
+              ),
+            if (widget.index == 0)
+              ElevatedButton(
+                onPressed: () async {
+                  if (await canLaunch(url2)) {
+                    await launch(url2);
+                  } else {
+                    throw 'Could not launch $url2';
+                  }
+                },
+                child: const Text("Link To Drive"),
+              ),
+            SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                if (kDebugMode) {
+                  print('apply clicked');
+                }
+              },
+              child: Text('Apply'),
+            ),
           ],
         ),
       ),

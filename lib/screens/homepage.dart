@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:evi_app/model/user%20model.dart';
-import 'package:evi_app/screens/domains_content.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -173,7 +172,7 @@ class _HomePageState extends State<HomePage> {
               child: const Center(
                 child: Text(
                   'Click on the particular domain tab to explore more about the Internship',
-                  style: TextStyle(fontSize: 18, color: CupertinoColors.white),
+                  style: TextStyle(fontSize: 15, color: CupertinoColors.white),
                 ),
               ),
             ),
@@ -209,9 +208,6 @@ class _HomePageState extends State<HomePage> {
               height: 12,
             ),
             const buildCard(index1: 7),
-            const SizedBox(
-              height: 12,
-            ),
             const SizedBox(
               height: 12,
             ),

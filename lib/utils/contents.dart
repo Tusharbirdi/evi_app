@@ -18,7 +18,7 @@ var contents = {
   '8':
       '1. Crate Content for company Services/Products\n2. Write all contents in the document\n3. Use Case1: You Can Create Content about Exposys Data Labs Virtual Internship FAQ\n4. Use Case2: You can create Content about Exposys Data Labs Services',
   '9':
-      '1. Monitor all Social Media\n2. Work on Branding\n3. Make Daily Report about Social Media Followers\nUSE CASE:\nHow to promote Company Links Like Follow,Share. Youtube Channels and Subscribe throughPan India/World Wide Using own Strategies. Examples the following Links can be Use user Own digital media promotion Strategies.\n 2. Come with Solution all Digital media promotion and channels and increase the followers.\nYouTube,Instagram,Pinterest,Twitter,LinkedIn,Facebook.',
+      '1. Monitor all Social Media\n2. Work on Branding\n3. Make Daily Report about Social Media Followers\nUSE CASE:\nHow to promote Company Links Like Follow,Share. Youtube Channels and Subscribe throughPan India/World Wide Using own Strategies. Examples the following Links can be Use user Own digital media promotion Strategies.\n 2. Come with Solution all Digital media promotion and channels and increase the followers on YouTube,Instagram,Pinterest,Twitter,LinkedIn,Facebook. \n LINK TO ALL PROFILES IS GIVEN IN ABOUT US PAGE',
   '10':
       '1. Understand company services or product\n2. Depth understand about process of Services\n3. Explain clearly about Services\n4. Work on customer Services',
   '11':
