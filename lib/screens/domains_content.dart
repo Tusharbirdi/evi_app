@@ -2,7 +2,6 @@
 
 import 'package:evi_app/utils/constants.dart';
 import 'package:evi_app/utils/contents.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -19,6 +18,7 @@ class _DomainContentState extends State<DomainContent> {
       'https://drive.google.com/file/d/1Z7RKmScBO7n9vcDIG3Xeo853Ics4QFaF/view';
   var url2 =
       'https://drive.google.com/file/d/1kbu3Fu0LQzkM3CQLWXyRoB5Suguq8wqq/view';
+  var url3 = 'http://www.exposysdata.com/registration.php';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,16 +68,18 @@ class _DomainContentState extends State<DomainContent> {
                 },
                 child: const Text("Link To Drive"),
               ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             ElevatedButton(
-              onPressed: () {
-                if (kDebugMode) {
-                  print('apply clicked');
+              onPressed: () async {
+                if (await canLaunch(url3)) {
+                  await launch(url3);
+                } else {
+                  throw 'Could not launch $url3';
                 }
               },
-              child: Text('Apply'),
+              child: const Text('Apply'),
             ),
           ],
         ),

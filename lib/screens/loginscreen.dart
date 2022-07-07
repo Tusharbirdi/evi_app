@@ -1,6 +1,7 @@
 // ignore_for_file: unnecessary_new
 
 import 'package:evi_app/screens/registrationscreen.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../mainscreen.dart';
@@ -160,7 +161,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 6,
                     ),
                     GestureDetector(
@@ -222,7 +223,9 @@ class _LoginScreenState extends State<LoginScreen> {
             errorMessage = "An undefined Error happened.";
         }
         Fluttertoast.showToast(msg: errorMessage!);
-        print(error.code);
+        if (kDebugMode) {
+          print(error.code);
+        }
       }
     }
   }
